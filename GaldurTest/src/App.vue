@@ -21,7 +21,7 @@
             .then(a => console.log(a))
             .catch(e => console.error(e));
 
-        galdurInvoke("testSync")
+        galdurInvoke("testSync", { someProp: 'value' })
             .then(a => console.log(a))
             .catch(e => console.error(e));
 

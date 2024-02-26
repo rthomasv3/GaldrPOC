@@ -35,7 +35,7 @@ internal class CommandsTest
     }
 
     [Command]
-    public string TestSync()
+    public string TestSync(dynamic test)
     {
         int count = _someSingleton.Increment();
         return $"it worked sync {count}";

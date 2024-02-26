@@ -10,8 +10,62 @@ Features:
 * Native file system integration
 * Single file executable
 * Reasonable binary size (example is 23.7MB)
+* Dependency injection
 
 ![screenshot](screenshot.png)
+
+## POC
+
+The POC is a simple app using Vue with just one component. The setup is pretty straight forward, just make a Vue app like you normally would and then setup Galdur with services and commands.
+
+```cs
+internal class Program
+{
+    [STAThread]
+    static void Main(string[] args)
+    {
+        using Galdur.Galdur galdur = new GaldurBuilder()
+            .SetTitle("Galdur + C# + Vue 3 App")
+            .SetSize(1024, 768)
+            .SetMinSize(800, 600)
+            .AddSingleton<SingletonTest>()
+            .AddService<TransientTest>()
+            .AddService<CommandsTest>()
+            .SetCommandNamespace("commands")
+            .SetPort(42069)
+            .Build();
+
+        galdur.Run();
+    }
+}
+```
+
+Any class tagged with the `[Command]` attribute in the configured command namespace will automatically be detected and added for use on the frontend. The attribute optionally takes in a command name (it uses the method name by default).
+
+```cs
+[Command]
+public async Task<string> TestAsync()
+{
+    await Task.Delay(5000);
+    return "it worked async";
+}
+```
+
+Then you can use the command anywhere on the frontend with `galdurInvoke`. The command names are made camelCase in `js`.
+
+```js
+galdurInvoke("testAsync")
+    .then(a => console.log(a))
+    .catch(e => console.error(e));
+```
+
+Any additional parameters can be added to the `galdurInvoke` call after the command name. The parameters will automatically be deserialized and passed into the C# method. Any additional parameters not passed in by the frontend will be evaluated via dependency injection. The command's class can also contain dependencies in the constructor.
+
+```js
+galdurInvoke("testSync", { someProp: 'value' })
+    .then(a => console.log(a))
+    .catch(e => console.error(e));
+```
 
 ## Debugging
 

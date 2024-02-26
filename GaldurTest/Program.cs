@@ -16,6 +16,7 @@ internal class Program
             .AddSingleton<SingletonTest>()
             .AddService<TransientTest>()
             .AddService<CommandsTest>()
+            .SetCommandNamespace("commands")
             .SetPort(42069)
             .Build();
 
