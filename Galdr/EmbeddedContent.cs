@@ -9,7 +9,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using SharpWebview.Content;
 
-namespace Galdur;
+namespace Galdr;
 
 internal sealed class EmbeddedContent : IWebviewContent, IDisposable
 {

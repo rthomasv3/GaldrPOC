@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GaldurTest", "GaldurTest\GaldurTest.csproj", "{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GaldrTest", "GaldrTest\GaldrTest.csproj", "{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Galdur", "Galdur\Galdur.csproj", "{D442C29E-88D8-42BA-BA56-991C00C1A4ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Galdr", "Galdr\Galdr.csproj", "{D442C29E-88D8-42BA-BA56-991C00C1A4ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

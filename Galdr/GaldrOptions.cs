@@ -3,9 +3,9 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using SharpWebview.Content;
 
-namespace Galdur;
+namespace Galdr;
 
-public sealed class GaldurOptions
+public sealed class GaldrOptions
 {
     public string Title { get; init; }
     public int Width { get; init; }

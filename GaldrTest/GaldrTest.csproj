@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>GaldurTest</RootNamespace>
+    <RootNamespace>GaldrTest</RootNamespace>
     <ApplicationIcon>wizard-round.ico</ApplicationIcon>
   </PropertyGroup>
 	
@@ -18,13 +18,21 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="GaldrTest" />
+  </ItemGroup>
 	
   <ItemGroup>
     <Content Include="wizard-round.ico" />
   </ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\galdur\Galdur.csproj" />
+    <ProjectReference Include="..\Galdr\Galdr.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="src\assets\" />
   </ItemGroup>
 
 </Project>

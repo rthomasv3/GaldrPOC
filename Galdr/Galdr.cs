@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SharpWebview;
 
-namespace Galdur;
+namespace Galdr;
 
-public class Galdur : IDisposable
+public class Galdr : IDisposable
 {
     #region Fields
 
@@ -22,7 +22,7 @@ public class Galdur : IDisposable
 
     #region Constructor
 
-    public Galdur(GaldurOptions options)
+    public Galdr(GaldrOptions options)
     {
         options.Services.AddSingleton(this);
         _serviceProvider = options.Services.BuildServiceProvider();
@@ -35,7 +35,7 @@ public class Galdur : IDisposable
             .SetTitle(options.Title)
             .SetSize(options.Width, options.Height, WebviewHint.None)
             .SetSize(options.MinWidth, options.MinHeight, WebviewHint.Min)
-            .Bind("galdurInvoke", HandleCommand);
+            .Bind("galdrInvoke", HandleCommand);
 
         _webView.Navigate(options.Content);
     }
@@ -112,9 +112,11 @@ public class Galdur : IDisposable
     {
         object result = null;
 
+        object[] args = ExtractArguments(method, parameters);
+
         if (method.IsStatic)
         {
-            result = method.Invoke(null, ExtractArguments(method, parameters));
+            result = method.Invoke(null, args);
         }
         else
         {
@@ -122,7 +124,7 @@ public class Galdur : IDisposable
 
             if (obj != null)
             {
-                result = method.Invoke(obj, ExtractArguments(method, parameters));
+                result = method.Invoke(obj, args);
             }
         }
 
@@ -154,42 +156,38 @@ public class Galdur : IDisposable
     {
         List<object> args = new();
 
-        try
-        {
-            ParameterInfo[] delegateParameters = method.GetParameters();
-            JObject jsonObject = parameters.FirstOrDefault() as JObject;
+        ParameterInfo[] delegateParameters = method.GetParameters();
+        JObject jsonObject = parameters.FirstOrDefault() as JObject;
 
-            foreach (ParameterInfo param in delegateParameters)
+        foreach (ParameterInfo param in delegateParameters)
+        {
+            if (param.ParameterType.IsPrimitive || param.ParameterType == typeof(string))
             {
-                if (param.ParameterType.IsPrimitive || param.ParameterType == typeof(string))
+                if (jsonObject?.ContainsKey(param.Name) == true)
                 {
-                    if (jsonObject?.ContainsKey(param.Name) == true)
-                    {
-                        args.Add(jsonObject.GetValue(param.Name).ToObject(param.ParameterType));
-                    }
+                    args.Add(jsonObject.GetValue(param.Name).ToObject(param.ParameterType));
+                }
+            }
+            else
+            {
+                object parameter = _serviceProvider.GetService(param.ParameterType);
+
+                if (parameter != null)
+                {
+                    args.Add(parameter);
                 }
                 else
                 {
-                    object parameter = _serviceProvider.GetService(param.ParameterType);
+                    parameter = jsonObject?.ToObject(param.ParameterType);
 
                     if (parameter != null)
                     {
                         args.Add(parameter);
-                    }
-                    else
-                    {
-                        parameter = jsonObject?.ToObject(param.ParameterType);
-
-                        if (parameter != null)
-                        {
-                            args.Add(parameter);
-                            jsonObject = null;
-                        }
+                        jsonObject = null;
                     }
                 }
             }
         }
-        catch { }
 
         return args.ToArray();
     }

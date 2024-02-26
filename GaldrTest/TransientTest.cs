@@ -1,4 +1,4 @@
-﻿namespace GaldurTest;
+﻿namespace GaldrTest;
 
 internal class TransientTest
 {

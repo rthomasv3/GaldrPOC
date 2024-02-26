@@ -1,4 +1,4 @@
-﻿namespace GaldurTest;
+﻿namespace GaldrTest;
 
 internal sealed class SingletonTest
 {

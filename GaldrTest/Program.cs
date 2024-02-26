@@ -1,25 +1,25 @@
 ﻿using System;
-using Galdur;
-using GaldurTest.commands;
+using Galdr;
+using GaldrTest.Commands;
 
-namespace GaldurTest;
+namespace GaldrTest;
 
 internal class Program
 {
     [STAThread]
     static void Main(string[] args)
     {
-        using Galdur.Galdur galdur = new GaldurBuilder()
-            .SetTitle("Galdur + C# + Vue 3 App")
+        using Galdr.Galdr galdr = new GaldrBuilder()
+            .SetTitle("Galdr + C# + Vue 3 App")
             .SetSize(1024, 768)
             .SetMinSize(800, 600)
             .AddSingleton<SingletonTest>()
             .AddService<TransientTest>()
-            .AddService<CommandsTest>()
-            .SetCommandNamespace("commands")
+            .AddService<CommandExamples>()
+            .SetCommandNamespace("Commands")
             .SetPort(42069)
             .Build();
 
-        galdur.Run();
+        galdr.Run();
     }
 }

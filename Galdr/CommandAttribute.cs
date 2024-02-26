@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Galdur;
+namespace Galdr;
 
 public sealed class CommandAttribute : Attribute
 {

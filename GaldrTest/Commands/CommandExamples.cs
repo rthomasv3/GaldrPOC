@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Galdur;
+using Galdr;
 
-namespace GaldurTest.commands;
+namespace GaldrTest.Commands;
 
-internal class CommandsTest
+internal sealed class CommandExamples
 {
     #region Fields
 
     private readonly SingletonTest _someSingleton;
-    private readonly Galdur.Galdur _galdur;
+    private readonly Galdr.Galdr _galdr;
 
     #endregion
 
     #region Constructor
 
-    public CommandsTest(SingletonTest someSingleton, Galdur.Galdur galdur)
+    public CommandExamples(SingletonTest someSingleton, Galdr.Galdr galdr)
     {
         _someSingleton = someSingleton;
-        _galdur = galdur;
+        _galdr = galdr;
     }
 
     #endregion
@@ -30,7 +30,7 @@ internal class CommandsTest
     {
         await Task.Delay(5000);
         int count = _someSingleton.Increment();
-        _galdur.PublishEvent("testing", new { Test = "working!" });
+        _galdr.PublishEvent("testing", new { Test = "working!" });
         return $"it worked async {count}";
     }
 

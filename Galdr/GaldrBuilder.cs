@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using SharpWebview.Content;
 
-namespace Galdur;
+namespace Galdr;
 
-public sealed class GaldurBuilder
+public sealed class GaldrBuilder
 {
     #region Fields
 
     private readonly ServiceCollection _services = new ServiceCollection();
-    private string _title = "Galdur";
+    private string _title = "Galdr";
     private int _width = 1024;
     private int _height = 768;
     private int _minWidth = 800;
@@ -26,52 +27,52 @@ public sealed class GaldurBuilder
 
     #region Public Methods
 
-    public GaldurBuilder SetTitle(string title)
+    public GaldrBuilder SetTitle(string title)
     {
         _title = title;
         return this;
     }
 
-    public GaldurBuilder SetSize(int width, int height)
+    public GaldrBuilder SetSize(int width, int height)
     {
         _width = width;
         _height = height;
         return this;
     }
 
-    public GaldurBuilder SetMinSize(int minWidth, int minHeight)
+    public GaldrBuilder SetMinSize(int minWidth, int minHeight)
     {
         _minWidth = minWidth;
         _minHeight = minHeight;
         return this;
     }
 
-    public GaldurBuilder SetPort(int port)
+    public GaldrBuilder SetPort(int port)
     {
         _port = port;
         return this;
     }
 
-    public GaldurBuilder SetDebug(bool debug)
+    public GaldrBuilder SetDebug(bool debug)
     {
         _debug = debug;
         return this;
     }
 
-    public GaldurBuilder SetCommandNamespace(string commandNamespace)
+    public GaldrBuilder SetCommandNamespace(string commandNamespace)
     {
         _commandNamespace = commandNamespace;
         return this;
     }
 
-    public GaldurBuilder AddService<T>() 
+    public GaldrBuilder AddService<T>() 
         where T : class
     {
         _services.AddTransient<T>();
         return this;
     }
 
-    public GaldurBuilder AddService<T1, T2>()
+    public GaldrBuilder AddService<T1, T2>()
         where T1 : class
         where T2 : class, T1
     {
@@ -79,14 +80,14 @@ public sealed class GaldurBuilder
         return this;
     }
 
-    public GaldurBuilder AddSingleton<T>()
+    public GaldrBuilder AddSingleton<T>()
         where T : class
     {
         _services.AddSingleton<T>();
         return this;
     }
 
-    public GaldurBuilder AddSingleton<T1, T2>()
+    public GaldrBuilder AddSingleton<T1, T2>()
         where T1 : class
         where T2 : class, T1
     {
@@ -94,9 +95,9 @@ public sealed class GaldurBuilder
         return this;
     }
 
-    public Galdur Build()
+    public Galdr Build()
     {
-        return new Galdur(new GaldurOptions()
+        return new Galdr(new GaldrOptions()
         {
             Commands = GetCommands(),
             Content = new EmbeddedContent(_port),
