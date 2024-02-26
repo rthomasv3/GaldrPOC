@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>GaldurTest</RootNamespace>
+    <ApplicationIcon>wizard-round.ico</ApplicationIcon>
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="dist\*.*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="dist\assets\*.*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Content Include="wizard-round.ico" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\galdur\Galdur.csproj" />
+  </ItemGroup>
+
+</Project>

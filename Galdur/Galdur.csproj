@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NativeFileDialogSharp" Version="0.5.0" />
+    <PackageReference Include="SharpWebview" Version="0.9.0" />
+  </ItemGroup>
+
+</Project>

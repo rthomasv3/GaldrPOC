@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GaldurTest", "GaldurTest\GaldurTest.csproj", "{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Galdur", "Galdur\Galdur.csproj", "{D442C29E-88D8-42BA-BA56-991C00C1A4ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{862B7EC1-7204-44EC-ACDA-96A109D1E9AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D442C29E-88D8-42BA-BA56-991C00C1A4ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D442C29E-88D8-42BA-BA56-991C00C1A4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D442C29E-88D8-42BA-BA56-991C00C1A4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D442C29E-88D8-42BA-BA56-991C00C1A4ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19199A98-F3AA-4CF9-9FE2-37586FDD507F}
+	EndGlobalSection
+EndGlobal
