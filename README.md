@@ -1,6 +1,6 @@
 ## Galdur
 
-Galdur is a WIP framework for building multi-plaform desktop applications using C#. It's powered by [webview](https://github.com/webview/webview) and compatible with any frontend web framework you want to use.
+Galdur is a WIP framework for building multi-platform desktop applications using C#. It's powered by [webview](https://github.com/webview/webview) and compatible with any frontend web framework you want to use.
 
 Features:
 * Cross-platform (Windows, Linux, macOS)
