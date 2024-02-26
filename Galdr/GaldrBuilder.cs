@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Reflection;
@@ -21,7 +20,7 @@ public sealed class GaldrBuilder
     private int _minHeight = 600;
     private int _port = 42069;
     private bool _debug = true;
-    private string _commandNamespace = "commands";
+    private string _commandNamespace = "Commands";
 
     #endregion
 

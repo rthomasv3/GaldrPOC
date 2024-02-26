@@ -31,7 +31,7 @@ internal class Program
             .AddSingleton<SingletonTest>()
             .AddService<TransientTest>()
             .AddService<CommandsTest>()
-            .SetCommandNamespace("commands")
+            .SetCommandNamespace("Commands")
             .SetPort(42069)
             .Build();
 
@@ -40,7 +40,7 @@ internal class Program
 }
 ```
 
-Any class tagged with the `[Command]` attribute in the configured command namespace will automatically be detected and added for use on the frontend. The attribute optionally takes in a command name (it uses the method name by default).
+Any method tagged with the `[Command]` attribute in the configured command namespace will automatically be detected and added for use on the frontend. The attribute optionally takes in a command name (it uses the method name by default).
 
 ```cs
 [Command]
@@ -62,9 +62,7 @@ galdrInvoke("testAsync")
 Any additional parameters can be added to the `galdrInvoke` call after the command name. The parameters will automatically be deserialized and passed into the C# method. Any additional parameters not passed in by the frontend will be evaluated via dependency injection. The command's class can also contain dependencies in the constructor.
 
 ```js
-galdrInvoke("testSync", { someProp: 'value' })
-    .then(a => console.log(a))
-    .catch(e => console.error(e));
+greetMsg.value = await galdrInvoke("greet", { name: name.value });
 ```
 
 ## Debugging
