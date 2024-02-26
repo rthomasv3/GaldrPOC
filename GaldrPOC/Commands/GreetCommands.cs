@@ -1,6 +1,6 @@
 ﻿using Galdr;
 
-namespace GaldrTest.Commands;
+namespace GaldrPOC.Commands;
 
 internal sealed class GreetCommands
 {

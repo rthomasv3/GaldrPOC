@@ -1,6 +1,6 @@
-﻿namespace GaldrTest;
+﻿namespace GaldrPOC;
 
-internal sealed class SingletonTest
+internal sealed class SingletonExample
 {
     private int _count = 0;
 

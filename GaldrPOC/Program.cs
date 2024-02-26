@@ -1,8 +1,8 @@
 ﻿using System;
 using Galdr;
-using GaldrTest.Commands;
+using GaldrPOC.Commands;
 
-namespace GaldrTest;
+namespace GaldrPOC;
 
 internal class Program
 {
@@ -13,8 +13,8 @@ internal class Program
             .SetTitle("Galdr + C# + Vue 3 App")
             .SetSize(1024, 768)
             .SetMinSize(800, 600)
-            .AddSingleton<SingletonTest>()
-            .AddService<TransientTest>()
+            .AddSingleton<SingletonExample>()
+            .AddService<TransientExample>()
             .AddService<CommandExamples>()
             .SetCommandNamespace("Commands")
             .SetPort(42069)

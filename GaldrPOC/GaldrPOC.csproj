@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>GaldrTest</RootNamespace>
+    <RootNamespace>GaldrPOC</RootNamespace>
     <ApplicationIcon>wizard-round.ico</ApplicationIcon>
   </PropertyGroup>
 	
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TrimmerRootAssembly Include="GaldrTest" />
+    <TrimmerRootAssembly Include="GaldrPOC" />
   </ItemGroup>
 	
   <ItemGroup>
@@ -28,11 +28,11 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\Galdr\Galdr.csproj" />
+    <Folder Include="src\assets\" />
   </ItemGroup>
 	
   <ItemGroup>
-    <Folder Include="src\assets\" />
+    <PackageReference Include="Galdr" Version="0.0.3" />
   </ItemGroup>
 
 </Project>

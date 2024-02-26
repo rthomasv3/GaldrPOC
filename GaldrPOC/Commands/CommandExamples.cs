@@ -2,20 +2,20 @@
 using System.Threading.Tasks;
 using Galdr;
 
-namespace GaldrTest.Commands;
+namespace GaldrPOC.Commands;
 
 internal sealed class CommandExamples
 {
     #region Fields
 
-    private readonly SingletonTest _someSingleton;
+    private readonly SingletonExample _someSingleton;
     private readonly Galdr.Galdr _galdr;
 
     #endregion
 
     #region Constructor
 
-    public CommandExamples(SingletonTest someSingleton, Galdr.Galdr galdr)
+    public CommandExamples(SingletonExample someSingleton, Galdr.Galdr galdr)
     {
         _someSingleton = someSingleton;
         _galdr = galdr;
