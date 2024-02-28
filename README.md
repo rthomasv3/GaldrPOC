@@ -9,7 +9,7 @@ Features:
 * Hot-reload
 * Native file system integration
 * Single file executable
-* Reasonable binary size (example is 23.7MB)
+* Reasonable binary size (this project is 27.3MB)
 * Dependency injection
 
 ![screenshot](screenshot.png)
