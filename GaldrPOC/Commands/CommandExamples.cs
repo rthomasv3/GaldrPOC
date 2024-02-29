@@ -8,17 +8,19 @@ internal sealed class CommandExamples
 {
     #region Fields
 
-    private readonly SingletonExample _someSingleton;
-    private readonly Galdr.Galdr _galdr;
+    private readonly SingletonExample _singletonExample;
+    private readonly EventService _eventService;
+    private readonly DialogService _dialogService;
 
     #endregion
 
     #region Constructor
 
-    public CommandExamples(SingletonExample someSingleton, Galdr.Galdr galdr)
+    public CommandExamples(SingletonExample singletonExample, EventService eventService, DialogService dialogService)
     {
-        _someSingleton = someSingleton;
-        _galdr = galdr;
+        _singletonExample = singletonExample;
+        _eventService = eventService;
+        _dialogService = dialogService;
     }
 
     #endregion
@@ -28,16 +30,15 @@ internal sealed class CommandExamples
     [Command]
     public async Task<string> TestAsync()
     {
-        await Task.Delay(5000);
-        int count = _someSingleton.Increment();
-        _galdr.PublishEvent("testing", new { Test = "working!" });
+        await Task.Delay(1000);
+        int count = _singletonExample.Increment();
         return $"it worked async {count}";
     }
 
     [Command]
     public string TestSync(dynamic test)
     {
-        int count = _someSingleton.Increment();
+        int count = _singletonExample.Increment();
         return $"it worked sync {count}";
     }
 
@@ -50,8 +51,32 @@ internal sealed class CommandExamples
     [Command]
     public async Task<string> TestFailureAsync()
     {
-        await Task.Delay(5000);
+        await Task.Delay(1000);
         throw new NotImplementedException("testing errors async");
+    }
+
+    [Command]
+    public void TestEvents()
+    {
+        _eventService.PublishEvent("testing", new { Test = "working!" });
+    }
+
+    [Command]
+    public async Task<string> BrowseDirectories()
+    {
+        return await _dialogService.OpenDirectoryDialog();
+    }
+
+    [Command]
+    public async Task<string> BrowseFiles()
+    {
+        return await _dialogService.OpenFileDialog();
+    }
+
+    [Command]
+    public async Task<string> SaveFile()
+    {
+        return await _dialogService.OpenSaveDialog();
     }
 
     #endregion

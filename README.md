@@ -22,20 +22,20 @@ The POC is a simple app using Vue with just one component. The setup is pretty s
 internal class Program
 {
     [STAThread]
-    static void Main(string[] args)
+    static void Main()
     {
         using Galdr.Galdr galdr = new GaldrBuilder()
             .SetTitle("Galdr + C# + Vue 3 App")
             .SetSize(1024, 768)
             .SetMinSize(800, 600)
-            .AddSingleton<SingletonTest>()
-            .AddService<TransientTest>()
-            .AddService<CommandsTest>()
+            .AddSingleton<SingletonExample>()
+            .AddService<TransientExample>()
+            .AddService<CommandExamples>()
             .SetCommandNamespace("Commands")
             .SetPort(42069)
-            .Build();
-
-        galdr.Run();
+            .SetDebug(true)
+            .Build()
+            .Run();
     }
 }
 ```
@@ -46,7 +46,7 @@ Any method tagged with the `[Command]` attribute in the configured command names
 [Command]
 public async Task<string> TestAsync()
 {
-    await Task.Delay(5000);
+    await Task.Delay(1000);
     return "it worked async";
 }
 ```

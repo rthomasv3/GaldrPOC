@@ -7,7 +7,7 @@ namespace GaldrPOC;
 internal class Program
 {
     [STAThread]
-    static void Main(string[] args)
+    static void Main()
     {
         using Galdr.Galdr galdr = new GaldrBuilder()
             .SetTitle("Galdr + C# + Vue 3 App")
@@ -18,8 +18,8 @@ internal class Program
             .AddService<CommandExamples>()
             .SetCommandNamespace("Commands")
             .SetPort(42069)
-            .Build();
-
-        galdr.Run();
+            .SetDebug(true)
+            .Build()
+            .Run();
     }
 }
