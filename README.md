@@ -65,6 +65,13 @@ Any additional parameters can be added to the `galdrInvoke` call after the comma
 greetMsg.value = await galdrInvoke("greet", { name: name.value });
 ```
 
+## Dependencies
+
+### Linux
+```
+sudo dnf install webkit2gtk4.0
+```
+
 ## Debugging
 
 To debug the application open a terminal and start the server. Make sure you're in the GaldrTest project directory.
