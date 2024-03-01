@@ -62,21 +62,21 @@ internal sealed class CommandExamples
     }
 
     [Command]
-    public async Task<string> BrowseDirectories()
+    public string BrowseDirectories()
     {
-        return await _dialogService.OpenDirectoryDialog();
+        return _dialogService.OpenDirectoryDialog();
     }
 
     [Command]
-    public async Task<string> BrowseFiles()
+    public string BrowseFiles()
     {
-        return await _dialogService.OpenFileDialog();
+        return _dialogService.OpenFileDialog();
     }
 
     [Command]
-    public async Task<string> SaveFile()
+    public string SaveFile()
     {
-        return await _dialogService.OpenSaveDialog();
+        return _dialogService.OpenSaveDialog();
     }
 
     #endregion
